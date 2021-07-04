@@ -36,12 +36,12 @@ class LinkList:
 
 
 
-llist = LinkList()
+if __name__ =="__main__":
+    llist = LinkList()
 
-llist.addNodeInLinkedList(4)
-llist.addNodeInLinkedList(5)
-llist.addNodeInLinkedList(3)
-llist.addNodeInLinkedList(1)
-
-print(llist.printLinkedList())
+    LinklistNum = list(map(int, input().split()))
+    for i in LinklistNum:
+        llist.addNodeInLinkedList(i)
+    
+    print(llist.printLinkedList())
 
