@@ -26,14 +26,26 @@ class LinkList:
             self.size +=1
 
     def removeNode(self, val):
-        tempNode = self.head
-        while  tempNode is not None:
-            if tempNode.val == val:
-                tempNode.prev.next = tempNode.next
-                tempNode.next.prev = tempNode.next
-                self.size -= 1
-                del tempNode
-                return
+
+        if self.head.val is val:
+            tempNode = self.head
+            self.head = tempNode.next
+            self.head.prev = None
+            del tempNode
+        elif self.tail.val is val:
+            tempNode = self.tail
+            self.tail = self.tail.prev
+            self.tail.next = None
+            del tempNode
+        else:
+            tempNode = self.head
+            while  tempNode is not None:
+                if tempNode.val == val:
+                    tempNode.prev.next = tempNode.next
+                    tempNode.next.prev = tempNode.next
+                    self.size -= 1
+                    del tempNode
+                    return
 
             tempNode = tempNode.next
            
