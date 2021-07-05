@@ -25,6 +25,20 @@ class LinkList:
             self.tail = node
             self.size +=1
 
+    def removeNode(self, val):
+        tempNode = self.head
+        while  tempNode is not None:
+            if tempNode.val == val:
+                tempNode.prev.next = tempNode.next
+                tempNode.next.prev = tempNode.next
+                self.size -= 1
+                del tempNode
+                return
+
+            tempNode = tempNode.next
+           
+
+
     def printLinkedList(self):
         vals = []
         node = self.head
@@ -44,4 +58,9 @@ if __name__ =="__main__":
         llist.addNodeInLinkedList(i)
     
     print(llist.printLinkedList())
+    print(llist.size)
 
+    llist.removeNode(5)
+
+    print(llist.printLinkedList())
+    print(llist.size)
